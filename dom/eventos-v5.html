@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <button v-on:click="somar(5, $event)">Somar 1</button>
+    <p v-on:mousemove="atualizarXY">
+        Mouse: {{ x }} e {{ y }}
+        <span v-on:mousemove="parar">PARAR POR AQUI!!!</span>
+        <span v-on:mousemove.stop>PARAR POR AQUI!!!</span>
+    </p>
+    <a href="http://google.com" v-on:click.prevent="naoNavegar">Google</a>
+    <hr>
+    <!-- No keyup é possível encadear comandos, por exemplo, keyup.enter.alt só dispara quando
+    ambos enter e alt são pressionados ao mesmo tempo -->
+    <input type="text" v-on:keyup.enter="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar(passo) {
+                console.log(passo, event);
+                this.contador+= passo;
+            },
+            atualizarXY(event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            parar(e){
+                e.stopPropagation();
+            },
+            exibirAlerta(){
+                alert('Estou te alertando!');
+            }
+        }
+    })
+</script>
