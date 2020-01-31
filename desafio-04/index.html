@@ -16,13 +16,15 @@
 		sintaxe de array -->
 	<h2>#02</h2>
 	<div :class="[classe1, classe2]">Estou sem classe CSS :(</div>
+	<!-- Também é possível aplicar classes da seguinte forma [{ classe : true or false ou propriedade que contenha true/false}], se a classe tiver o mesmo nome da propriedade que contém true/false, ficaria algo assim [{classe: propriedadeComNomeIgual}] ou [{classe: classe}], nisso o ECMA Script aceita apenas [{classe}]  -->
+
 
 	<!-- 3) Aplique na div abaixo a classe informada pelo usuário
 		(crie classe CSS de exemplo). -->
 	<h2>#03</h2>
 	<div>
 		<input type="text" v-model="classe3">
-		<div :class="[classe3]"><br></div>
+		<div :class="classe3"><br></div>
 	</div>
 
 	<!-- 4) Aplique na div abaixo a classe informada pelo usuário e
@@ -30,16 +32,16 @@
 	<h2>#04</h2>
 	<div>
 		<input type="text" v-model="classe4">
-		<input type="text" v-model="aplicarClasse">
-		<div :class="[classe4, {encolher: aplicarClasse}]"><br></div>
+		<input type="text" @input="aplicarClasse">
+		<div :class="[classe4, {encolher: classe5}]"><br></div>
 	</div>
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
     Associe os estilos a div abaixo  -->
 	<h2>#05</h2>
 	<div>
-		<input type="text" v-model="estilo1" v-on:keyup="logar">
-		<div :style="{estilo1}"><br></div>
+		<input type="text" v-model="estilo1">
+		<div :style="{backgroundColor: estilo1}"><br></div>
 	</div>
 
 	<!-- 6) Crie uma barra de progresso simples com setInterval 
@@ -47,7 +49,7 @@
 	<h2>#06</h2>
 	<div>
 		<button @click="iniciarProgresso">Iniciar</button>
-		<div :style="{backgroundColor: 'rebeccapurple', width: porcentagem + '%'}"><br></div>
+		<div :style="{border: 'solid 1px black', backgroundColor: 'rebeccapurple', width: porcentagem + '%'}"><br></div>
 	</div>
 </div>
 <script src="app.js"></script>

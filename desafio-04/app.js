@@ -6,26 +6,28 @@ new Vue({
 		classe2: 'redondo',
 		classe3: '',
 		classe4: '',
-		aplicarClasse: false,
+		classe5: true,
 		estilo1: '',
 		porcentagem: 0
 	},
 	methods: {
 		iniciarEfeito() {
 			setInterval(() => {
-				return this.animacao == 'destaque' ?
+				this.animacao == 'destaque' ?
 				this.animacao = 'encolher' : this.animacao = 'destaque';
-			}, 500)
-			
+			}, 500)			
 		},
 		iniciarProgresso() {
 			setInterval(() => {
-				console.log(this.porcentagem);
-				return this.porcentagem += 10;
-			}, 500)
+				this.porcentagem <100 ? this.porcentagem += 1 : clearInterval();
+			}, 50)
 		},
-		logar() {
-			console.log(this.estilo1);
+		aplicarClasse(event) {
+			if (event.target.value == "true") {
+				this.classe5 = true;
+			} else if(event.target.value == "false"){
+				this.classe5 = false;
+			}
 		}
 	}
 })
