@@ -14,8 +14,9 @@
 	width: 50px !important;
 }
 
-.cinza {
-	background-color: lightslategray;
+.roxo {
+	background-color: aquamarine;
+	color: rebeccapurple;
 	width: 200px;
 }
 .redondo {

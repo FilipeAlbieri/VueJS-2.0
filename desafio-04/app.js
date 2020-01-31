@@ -2,9 +2,13 @@ new Vue({
 	el: '#desafio',
 	data: {
 		animacao: '',
-		classe1: 'cinza',
+		classe1: 'roxo',
 		classe2: 'redondo',
-		classe3: ''
+		classe3: '',
+		classe4: '',
+		aplicarClasse: false,
+		estilo1: '',
+		porcentagem: 0
 	},
 	methods: {
 		iniciarEfeito() {
@@ -15,7 +19,13 @@ new Vue({
 			
 		},
 		iniciarProgresso() {
-
+			setInterval(() => {
+				console.log(this.porcentagem);
+				return this.porcentagem += 10;
+			}, 500)
+		},
+		logar() {
+			console.log(this.estilo1);
 		}
 	}
 })
